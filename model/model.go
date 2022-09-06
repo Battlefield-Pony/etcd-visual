@@ -1,13 +1,11 @@
 package model
 
-import "time"
-
 type BaseEntity struct {
-	Id              string    `json:"id,omitempty" gorm:"primary"`
-	CreatedBy       string    `json:"created_by,omitempty"`
-	CreatedTime     time.Time `json:"created_time"`
-	LastUpdatedBy   string    `json:"last_updated_by,omitempty"`
-	LastUpdatedTime time.Time `json:"last_updated_time"`
-	Version         string    `json:"version,omitempty"`
-	RouteGroupId    string    `json:"route_group_id,omitempty"`
+	Id              string `json:"id,omitempty" gorm:"primary"`
+	CreatedBy       string `json:"createdBy,omitempty"`
+	CreatedTime     int64  `json:"createdTime" gorm:"autoCreateTime"`
+	LastUpdatedBy   string `json:"lastUpdatedBy,omitempty"`
+	LastUpdatedTime int64  `json:"lastUpdatedTime" gorm:"autoUpdateTime"`
+	Version         string `json:"version,omitempty"`
+	RouteGroupId    string `json:"routeGroupId,omitempty"`
 }
