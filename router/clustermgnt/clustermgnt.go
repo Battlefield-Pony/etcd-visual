@@ -13,5 +13,10 @@ var Routes = router.ApiGroup{
 			Method:      http.MethodGet,
 			HandlerFunc: list,
 		},
+		{
+			Path:        "/:id",
+			Method:      http.MethodGet,
+			HandlerFunc: detail,
+		},
 	},
 }

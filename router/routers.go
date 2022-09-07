@@ -17,6 +17,18 @@ type ApiGroup struct {
 	Prefix string
 }
 
+type Response[T any] struct {
+	Code   uint   `json:"code"`
+	Msg    string `json:"msg"`
+	Result T      `json:"result"`
+}
+
+func GenerateSuccessResponse[T any](entity T) Response[T] {
+	return Response[T]{Result: entity}
+}
+
+type HandlerFunc[T any] func(ctx *gin.Context) (T, error)
+
 func (apis ApiGroup) RegisterToEngine(engine *gin.Engine) {
 	g := engine.Group(apis.Prefix)
 	for _, r := range apis.Routes {

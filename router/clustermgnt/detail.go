@@ -5,16 +5,13 @@ import (
 	"etcd-visual/router"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"strconv"
 )
 
-func list(ctx *gin.Context) {
-
-	var filter model.Cluster
-	err := ctx.Bind(&filter)
-	if err != nil {
-		return
-	}
-	cluster, err := model.ListCluster(filter)
+func detail(ctx *gin.Context) {
+	idStr := ctx.Param("id")
+	id, _ := strconv.Atoi(idStr)
+	cluster, err := model.GetClusterWithAssociation(id)
 	if err != nil {
 		return
 	}

@@ -1,7 +1,7 @@
 package model
 
 type BaseEntity struct {
-	Id              string `json:"id,omitempty" gorm:"primary"`
+	Id              int    `json:"id,omitempty" gorm:"primaryKey"`
 	CreatedBy       string `json:"createdBy,omitempty"`
 	CreatedTime     int64  `json:"createdTime" gorm:"autoCreateTime"`
 	LastUpdatedBy   string `json:"lastUpdatedBy,omitempty"`

@@ -7,7 +7,7 @@ import (
 )
 
 func init() {
-	cfg := conf.Config{DbDsn: ""}
+	cfg := conf.Config{DbDsn: "root:mysqlpw@tcp(127.0.0.1:49153)/etcd-visual"}
 	conf.InitServiceContext(cfg)
 }
 
